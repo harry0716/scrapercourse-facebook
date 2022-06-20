@@ -3,8 +3,12 @@ from webdriver_manager.chrome import ChromeDriverManager  #載入瀏覽器驅動
 from selenium.webdriver.common.by import By       #載入定位模組
 import time   #載入時間模組
 import credentials  #載入credentials模組
+from selenium.webdriver.chrome.options import Options   #載入瀏覽器options選項設定模組
 
-driver = webdriver.Chrome(ChromeDriverManager().install())    #由chrome驅動程式管理員幫我們打開chrome瀏覽器
+options = Options()   #建立瀏覽器物件
+options.add_argument("--disable-notifications")  #加入關閉通知的參數
+
+driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=options)  #由chrome驅動程式管理員幫我們打開chrome瀏覽器，install()之後增加關閉通知的選項設定
 
 driver.get("https://www.facebook.com/")   #瀏覽器進入facebook
 
