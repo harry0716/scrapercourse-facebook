@@ -19,4 +19,10 @@ email.send_keys(credentials.email)             #利用send_keys輸入email
 password.send_keys(credentials.password)       #利用send_keys輸入password
 password.submit()                              #利用submit發送
 
-time.sleep(60)                                 #等待60秒
+time.sleep(5)                                 #等待5秒
+
+driver.get("https://www.facebook.com/ETtodayMOVIE")
+
+for i in range(20):   #滾動捲軸20次
+    driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+    time.sleep(3)     #每次等待3秒
